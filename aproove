@@ -1,0 +1,13 @@
+#include "minitrace.h"
+
+#ifdef _WIN32
+#include <windows.h>
+#define usleep(x) Sleep(x/1000)
+#else
+#include <unistd.h>
+#endif
+
+void c() {
+	MTR_SCOPE("c++", "c()");
+	usleep(10000);
+}
